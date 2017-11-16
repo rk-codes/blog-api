@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: xADJsPISdf52ZkKeR3BNpTHP/k26ZDA5yeKjJdI/Wn7t7zXE4udT5oz3f340JdVG39GCPAq8R7j6O1zgJ995UBect+5zSd1+Y1BHD+SojAY3ZCF1vc5eXzgqpw9jx7vdAvMax7KXAjiC0VLE99V8qo4ruwTibfqTcKxYv+yKMeh/yXHyd9Kt2CSBwCvblxOcF+h+khyjhCYrSOvtU4Tm9WA554I5VNtMwtCzs74k1g1P76VBLuQqBOqUVvliM4T3kcxs/8sj9unnGOJxJkcM6wUkwH8QQLnw+eQCPDVNDMpigk8xYJMf1/QhzYF/WxIhgGT214l8EyJaFjVWEY/rKLkWjJXI2/v9aU5S71oDXcjSeWyBFsfDcrjMh8whm/stFl63OcZXrWiE9+kvSC65hdyRtmXypBGrSl3BBIeSQwicO4Xg/Bc3ypTVtB0waaCjMtrFLuAQJPDW0fXHvT4+cLvCtPuwSxL9RAz+0nWBEPfFNTcM6zFAb9JHJeE3DD6K9xReWtUTdP62aqzuby9VIwa4u6MyscU3OEPOqg03PawlycXYxgJv/YrjBrwHYkC7I6eJmCKQqoh3KgjPVmzrCUpKb2EAglXP4O6eCk+xi/x5jTwCoAf8j/d8K5tCoAyg+5pfM6jwQeQssEUrZyh0jcRxId3Lq3OemB4Uz7l1pLo=
+  app: radiant-fjord-30449
+  on:
+    repo: rk-codes/blog-api
