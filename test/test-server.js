@@ -15,7 +15,7 @@ describe('Blog API', function() {
     	return closeServer();
   	});
 
-  	it('should list the items on GET', function() {
+  	it('should list blog posts on GET', function() {
   		return chai.request(app)
   		  .get('/blog-posts')
   		  .then(function(res) {
@@ -31,8 +31,12 @@ describe('Blog API', function() {
   		});	
   	});
 
-  	it('should add item on POST', function() {
-  		const newItem = {title : "New Title", content: "New Content ", author: "CK"};
+  	it('should add blog post on POST', function() {
+  		const newItem = {
+        title : "New Title", 
+        content: "New Content ", 
+        author: "CK"
+      };
   		return chai.request(app)
   		  .post('/blog-posts')
   		  .send(newItem)
@@ -45,7 +49,7 @@ describe('Blog API', function() {
   		});
   	});
 
-  	it('should delete items on DELETE', function() {
+  	it('should delete blog post on DELETE', function() {
   		return chai.request(app)
   		  .get('/blog-posts')
   		  .then(function(res) {
@@ -57,8 +61,22 @@ describe('Blog API', function() {
   		});
   	});
 
-  	it('should update item on PUT', function() {
-
-  	})
-
+  	it('should update blog post on PUT', function() {
+      const updateData = {
+        title : "New Title", 
+        content: "New Content ", 
+        author: "CKRK"
+      }
+      return chai.request(app)
+       .get('/blog-posts')
+       .then(function(res) {
+          updateData.id = res.body[0].id;
+          return chai.request(app)
+           .put(`/blog-posts/${updateData.id}`)
+           .send(updateData);
+       })
+       .then(function(res) {
+         res.should.have.status(204);
+       });
+  	});
 });
