@@ -1,5 +1,6 @@
 const chai = require('chai');
-const chaiHttp = require('chai-http'); 
+const chaiHttp = require('chai-http');
+
 
 const {app, closeServer, runServer} = require('../server');
 
@@ -27,8 +28,8 @@ describe('Blog API', function() {
   			 item.should.be.a('object');
   			 item.should.include.keys(expectedKeys);
   		  })
-  	 });	
-  	});
+  	 })	
+  	}); 
 
   it('should add blog post on POST', function() {
     const newItem = {
@@ -45,7 +46,7 @@ describe('Blog API', function() {
   		  res.body.should.be.a('object');
   		  res.body.should.include.keys('title', 'content', 'author');
   		  res.body.id.should.not.be.null;
-  	 });
+  	 })
   });
 
   it('should delete blog post on DELETE', function() {
@@ -57,7 +58,7 @@ describe('Blog API', function() {
   	 })
   	 .then(function(res) {
   	   res.should.have.status(204);
-  	 });
+  	 })
   });
 
   it('should update blog post on PUT', function() {
@@ -77,5 +78,5 @@ describe('Blog API', function() {
       .then(function(res) {
         res.should.have.status(204);
       });
-  });
+  })
 });
